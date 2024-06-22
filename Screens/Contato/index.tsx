@@ -8,76 +8,45 @@ const Home: React.FC = () => {
   function navigateToAbout() {
     navigation.navigate('Sobre');
   }
-
- 
-  const cards = [
-    {
-      id: 1,
-      image: require('../../assets/gabriel.png'),
-      text: 'bielsolosos',
-      icon: require('../../assets/git.png'),
-    },
-    {
-      id: 2,
-      image: require('../../assets/amanda.png'),
-      text: 'AAlvesAmanda',
-      icon: require('../../assets/git.png'),
-    },
-    {
-      
-      id: 3,
-      image: require('../../assets/leony.jpeg'),
-      text: 'LeonyHenrique',
-      icon: require('../../assets/git.png'),
-    },
-  {
-    id: 4,
-    image: require('../../assets/lucas.png'),
-    text: 'LucasTravassos22',
-    icon: require('../../assets/git.png'),
-  },
-{
-  id: 5,
-  image: require('../../assets/nicolas.png'),
-  text: 'Nicolas645',
-  icon: require('../../assets/git.png'),
-  
-},
-  
-  ];
-
-  
-  const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.cardContainer} onPress={() => console.log('Card pressionado')}>
-      <Image source={item.image} style={styles.cardImage} resizeMode="cover" />
-      <View style={styles.textContainer}>
-        <Image source={item.icon} style={styles.icon} />
-        <Text style={styles.cardText}>{item.text}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-
   return (
     <ImageBackground
-      source={require('../../assets/image0.png')}
+      source={require('../../assets/Background.png')}
       style={styles.backgroundImage}
       resizeMode="cover"
     >
       <View style={styles.overlay}>
-        <Text style={styles.title}>Número de contato</Text>
-        <Text style={styles.title}>(808) 812-8383</Text>
-     
-     
-        <FlatList
-          data={cards}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id.toString()}
-          horizontal={true}
-          contentContainerStyle={styles.flatListContainer}
-        />
-
-      
        
+        <View style={styles.container}>
+        <Text style={styles.header}>Contato: </Text>
+       
+          <Text style={styles.contactBox}>
+          Se você ainda tem dúvidas ou problemas, estamos aqui para ajudar.
+            Nossa equipe de atendimento ao cliente está disponível para garantir
+            que você tenha a melhor experiência possível. Por favor, entre em
+            contato conosco através das opções abaixo.
+            <Text>{"\n"}</Text>
+            <Text>{"\n"}</Text>
+            <Text style={styles.contato}>Telefone:</Text>
+            <Text>{"\n"}</Text>
+            <Text style={styles.contato}> (11) 98765-4321</Text>
+            <Text>{"\n"}</Text>
+            <Text>{"\n"}</Text>
+            <Text style={styles.contato}>E-mail:</Text>
+            <Text>{"\n"}</Text>
+            <Text style={styles.contato}> contato@techcursos.com.br</Text>
+            </Text>
+       
+
+         
+      
+        <Text style={styles.header}>Endereço:</Text>
+        <View style={styles.addressBox}>
+          <Text style={styles.contato}>
+            Tech Cursos Ltda. Rua Inovação, 123, Bairro Tecnológico, Cidade do Futuro, TE 45678-910, Brasil
+          </Text>
+
+        </View>   
+      </View>
       </View>
     </ImageBackground>
   );
@@ -88,73 +57,64 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
+    transform: [{ scale: 1.09 }]
+  
   },
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.562)',
+    backgroundColor: 'rgba(255, 255, 255, 0.219)',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+    
+  
   },
-  title: {
-    fontSize: 36,
-    fontWeight: 'bold',
-    color: '#fff',
+  header: {
+    fontSize: 30,
+    color: '#000',
+    marginBottom: 10,
+    textAlign: 'center'
+  },
+  container: {
+    width: '90%',
+    height:'85%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#eff1efd5',
+    borderWidth:1
+  
+
+  },
+  contactBox: {
+    backgroundColor: 'rgb(255, 255, 255)',
+    padding: 20,
     marginBottom: 20,
-    marginTop: 40,
+    width: '90%',
+    height:'50%',
+    alignItems: 'center',
+    borderWidth:1,
+    textAlign:'center',
+  },
+  addressBox: {
+    backgroundColor: 'rgb(255, 255, 255)',
+    padding: 20,
+    borderWidth:1,
+    width: '90%',
+    textAlign: 'center'
+  },
+  contactText: {
+    fontSize: 16,
+    color: '#000',
     textAlign: 'center',
+    marginBottom: 10,
   },
-  flatListContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 20,
-  },
-  cardContainer: {
-    width: 200,
-    height: 200,
-    backgroundColor: 'rgba(0, 0, 0, 0.623)',
-    borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    marginHorizontal: 10,
-  },
-  cardImage: {
-    width: '100%',
-    height: '100%',
-  },
-  textContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 10,
-    position: 'absolute', 
-    bottom: 10, 
-  },
-  icon: {
-    width: 20,
-    height: 20,
-    marginRight: 5,
-    backgroundColor: '#0f0f0f50',
-    padding: 13,
-  },
-  cardText: {
-    color: '#ffffff',
-    fontSize: 20,
+  contato: {
+    fontSize: 16,
+    color: '#000',
     textAlign: 'center',
-    backgroundColor: '#0f0f0f70',
-    padding: 3,
-  },
-  button: {
-    backgroundColor: 'rgba(0, 0, 0, 0.425)',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 5,
-    marginTop: 20,
-  },
-  buttonText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#ffffff',
+    marginBottom: 5,
+    
+    
   },
 });
 
