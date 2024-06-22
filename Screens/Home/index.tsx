@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import BackGroundFont from '../../components/BackGroundFont';
 
 const Home: React.FC = () => {
   const navigation = useNavigation();
@@ -15,16 +16,12 @@ const Home: React.FC = () => {
       style={styles.backgroundImage}
       resizeMode="cover"
     >
-      <View style={styles.overlay}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.title}>Hotel Aloha Hawaii</Text>
-        </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={navegarAjuda}>
-            <Text style={styles.buttonText}>Saiba mais</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+      <BackGroundFont titulo='Quem Somos:' conteudo='A Tech Cursos é uma plataforma de especializada em cursos online de tecnologia. Fundada por especialistas da área, nossa missão é democratizar o acesso ao conhecimento técnico e capacitar pessoas globalmente para atingir seus objetivos profissionais.
+
+Nossa Filosofia:
+Acessibilidade: Cursos de qualidade para todos, independente de localização ou nível de experiência.
+Excelência: Conteúdos atualizados desenvolvidos por profissionais renomados.' />
+
     </ImageBackground>
   );
 };
@@ -34,6 +31,7 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
+    alignItems: 'center'
   },
   overlay: {
     flex: 1,
