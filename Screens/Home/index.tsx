@@ -12,9 +12,9 @@ const Home: React.FC = () => {
 
   return (
     <ImageBackground
-      source={require('../../assets/image0.png')}
-      style={styles.backgroundImage}
-      resizeMode="cover"
+    source={require('../../assets/Background.png')}
+    style={styles.backgroundImage}
+    resizeMode="cover"
     >
       <BackGroundFont titulo='Quem Somos:' conteudo='A Tech Cursos é uma plataforma de especializada em cursos online de tecnologia. Fundada por especialistas da área, nossa missão é democratizar o acesso ao conhecimento técnico e capacitar pessoas globalmente para atingir seus objetivos profissionais.
 
