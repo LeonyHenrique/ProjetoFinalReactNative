@@ -55,7 +55,6 @@ const Home: React.FC = () => {
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    resizeMode: 'cover',
     justifyContent: 'center',
     transform: [{ scale: 1.09 }]
   
@@ -77,7 +76,7 @@ const styles = StyleSheet.create({
   },
   container: {
     width: '90%',
-    height:'85%',
+    padding: 9,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#eff1efd5',
