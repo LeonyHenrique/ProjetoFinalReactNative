@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ImageBackground,ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Home: React.FC = () => {
+export default function Ajuda(){
   const navigation = useNavigation();
 
   function navegarAjuda() {
@@ -123,4 +123,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;

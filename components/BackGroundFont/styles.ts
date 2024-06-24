@@ -13,6 +13,7 @@ export const FundoTitulo = styled.View`
   border-color: #000;
   border-width: 1px;
   padding: 20px;
+  border-radius: 8px;
 `
 
 export const ConteudoTitulo = styled.View`
@@ -24,6 +25,8 @@ export const ConteudoTitulo = styled.View`
   background-color: #fff;
   border-width: 1px;
   border-style: solid;
+  border-radius: 8px;
+
   `
 
 export const Btext = styled.Text`

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, Image, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Home: React.FC = () => {
+export default function Contato(){
   const navigation = useNavigation();
 
   function navigateToAbout() {
@@ -117,4 +117,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;

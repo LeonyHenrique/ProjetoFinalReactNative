@@ -12,8 +12,7 @@ import BackGroundFont from "../../components/BackGroundFont";
 import Logo from "../../components/Logo";
 import { Scroll } from "../../components/BackGroundFont/styles";
 
-//Quem que fez isso aqui???w
-//const Home: React.FC = () => {
+
 export default function Home(){
   const navigation = useNavigation();
 
