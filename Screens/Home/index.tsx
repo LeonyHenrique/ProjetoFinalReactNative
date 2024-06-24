@@ -27,7 +27,7 @@ export default function Home(){
     >
       <HandleConectado/>
       <View style={{flex: 1}}>
-        
+        <Logo></Logo>
       <BackGroundFont
         titulo="Quem Somos:"
         conteudo1="
@@ -38,7 +38,10 @@ export default function Home(){
         conteudo3="Excelência: Conteúdos atualizados desenvolvidos por profissionais renomados"
         conteudo4="Flexibilidade: Aprenda no seu ritmo, a qualquer hora e lugar."
         conteudo5="Inovação: Utilizamos tecnologias e metodologias avançadas para uma experiência de aprendizado envolvente."
-        
+        subSubTitulo="Junte-se a Nós"
+        conteudo6="Explore nossos cursos e alcance suas metas educacionais e profissionais. Para mais informações, entre em contato conosco.
+"
+
 
       />
       </View>
@@ -52,36 +55,6 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     justifyContent: "center",
     alignItems: "center",
-  },
-  overlay: {
-    flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.226)",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
-  },
-  title: {
-    fontSize: 36,
-    fontWeight: "bold",
-    color: "#fff",
-    marginBottom: 20,
-    marginTop: 40,
-  },
-  buttonContainer: {
-    alignItems: "center",
-    marginBottom: 50,
-    marginTop: 500,
-  },
-  button: {
-    backgroundColor: "rgba(0, 0, 0, 0.425)",
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 5,
-  },
-  buttonText: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#ffffff",
-  },
+  }
 });
 

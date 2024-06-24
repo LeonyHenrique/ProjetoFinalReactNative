@@ -5,9 +5,8 @@ export const FundoTitulo = styled.View`
     flex: 1;
   align-items: center;
   justify-content: center;
-  max-height: 55px;
   max-width: 320px;
-  min-height: 555px;
+  min-height: 390px;
   min-width: 320px;
   margin: 0 50px;
   background-color: #eff1efd5;
@@ -47,7 +46,8 @@ export const Utext = styled.Text`
 export const Scroll = styled.ScrollView`
     padding: 20px;
     min-height: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 `
 
 export const SubTitulo = styled.Text`

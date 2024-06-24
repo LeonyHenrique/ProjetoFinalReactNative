@@ -1,8 +1,9 @@
 import styled from "styled-components/native";
 
 export const LimitandoLogo = styled.View`
-    width: 200px;
-    height: 200px;
-    padding-left: 110px;
-    flex-grow: 1;
+    width: 125px;
+    height: 125px;
+    margin-left: 85px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 `

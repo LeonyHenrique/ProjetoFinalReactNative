@@ -6,7 +6,7 @@ export default function Logo() {
   return (
     <LimitandoLogo>
     <Image
-      source={require("../../assets/Logo.png")}
+      source={require("../../assets/LogoLow-res.png")}
       style={styles.backgroundImage}
     ></Image>
     </LimitandoLogo>
