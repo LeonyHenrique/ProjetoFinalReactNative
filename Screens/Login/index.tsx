@@ -28,7 +28,7 @@ export default function Login(){
       resizeMode="cover"
     >
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <ConexaoInternet/>
+        <HandleConectado/>
         <View style={styles.container}>
           <Text style={styles.title}>{`Login`}</Text>
           <View style={styles.inputContainer}>
