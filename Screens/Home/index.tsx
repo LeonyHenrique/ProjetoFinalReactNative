@@ -19,15 +19,14 @@ export default function Home(){
 
 
   return (
-    <ScrollView>
-      <HandleConectado/>
+      
     <ImageBackground
-      source={require("../../assets/Background.png")}
-      style={styles.backgroundImage}
-      resizeMode="cover"
+    source={require("../../assets/Background.png")}
+    style={styles.backgroundImage}
+    resizeMode="cover"
     >
+      <HandleConectado/>
       <View style={{flex: 1}}>
-        <Logo></Logo>
         
       <BackGroundFont
         titulo="Quem Somos:"
@@ -37,10 +36,13 @@ export default function Home(){
         subTitulo="Nossa Filosofia"
         conteudo2="Acessibilidade: Cursos de qualidade para todos, independente de localização ou nível de experiência."
         conteudo3="Excelência: Conteúdos atualizados desenvolvidos por profissionais renomados"
+        conteudo4="Flexibilidade: Aprenda no seu ritmo, a qualquer hora e lugar."
+        conteudo5="Inovação: Utilizamos tecnologias e metodologias avançadas para uma experiência de aprendizado envolvente."
+        
+
       />
       </View>
     </ImageBackground>
-    </ScrollView>
   );
 };
 

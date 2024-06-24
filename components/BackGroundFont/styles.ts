@@ -46,6 +46,8 @@ export const Utext = styled.Text`
 
 export const Scroll = styled.ScrollView`
     padding: 20px;
+    min-height: 100%;
+    margin-bottom: 10px;
 `
 
 export const SubTitulo = styled.Text`

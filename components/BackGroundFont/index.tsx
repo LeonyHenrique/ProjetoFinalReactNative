@@ -17,9 +17,11 @@ export default function BackGroundFont(props: {
   conteudo1: string;
   conteudo2: string;
   conteudo3: string;
+  conteudo4: string;
+  conteudo5: string;
 }) {
   //Vi isso na internet e funcinou bem como eu gostaria!
-  const { titulo, conteudo1, subTitulo, conteudo2, conteudo3 } = props;
+  const { titulo, conteudo1, subTitulo, conteudo2, conteudo3, conteudo4, conteudo5 } = props;
 
   return (
     <FundoTitulo>
@@ -42,6 +44,8 @@ export default function BackGroundFont(props: {
           <SubTitulo>{`         ${subTitulo}`}</SubTitulo>
           <Text>{`\u2022   ${conteudo2}`} </Text>
           <Text>{`\u2022   ${conteudo3}`} </Text>
+          <Text>{`\u2022   ${conteudo4}`} </Text>
+          <Text>{`\u2022   ${conteudo5}`} </Text>
 
         </Scroll>
       </ConteudoTitulo>
