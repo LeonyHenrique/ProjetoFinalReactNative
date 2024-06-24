@@ -8,6 +8,8 @@ import {
   SubTitulo,
 } from "./styles";
 import React from "react";
+import * as Animatable from 'react-native-animatable';
+
 
 export default function BackGroundFont(props: {
   titulo: string;
@@ -21,7 +23,19 @@ export default function BackGroundFont(props: {
 
   return (
     <FundoTitulo>
-      <Utext> {titulo} </Utext>
+      <Animatable.Text 
+      style={{
+        fontSize:30,
+        fontStyle: "italic",
+        marginBottom: 30,
+      }}
+      animation="fadeIn"
+      iterationCount={Infinity}
+      delay={200}
+
+      
+      
+      > {titulo} </Animatable.Text>
       <ConteudoTitulo>
         <Scroll>
           <Btext> {conteudo1} </Btext>

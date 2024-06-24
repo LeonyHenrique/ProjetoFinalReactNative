@@ -11,6 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import BackGroundFont from "../../components/BackGroundFont";
 import Logo from "../../components/Logo";
 import { Scroll } from "../../components/BackGroundFont/styles";
+import HandleConectado from "../../components/HandleConectado";
 
 
 export default function Home(){
@@ -19,6 +20,7 @@ export default function Home(){
 
   return (
     <ScrollView>
+      <HandleConectado/>
     <ImageBackground
       source={require("../../assets/Background.png")}
       style={styles.backgroundImage}
