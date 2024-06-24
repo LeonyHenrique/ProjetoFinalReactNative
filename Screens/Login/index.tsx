@@ -25,7 +25,7 @@ export default function Login(){
     <ImageBackground
       source={require("../../assets/Background.png")}
       style={styles.backgroundImage}
-      resizeMode="repeat"
+      resizeMode="cover"
     >
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <HandleConectado/>

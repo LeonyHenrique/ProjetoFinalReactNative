@@ -40,7 +40,7 @@ export const Btext = styled.Text`
 export const Utext = styled.Text`
     font-size: 30px;
     font-style: italic;
-    margin-bottom: 30px;
+    
 `
 
 export const Scroll = styled.ScrollView`
@@ -55,4 +55,6 @@ export const SubTitulo = styled.Text`
     align-items: center;
     font-size: 15px;
     font-weight: bold;
+    margin-top: 10px;
+
 `

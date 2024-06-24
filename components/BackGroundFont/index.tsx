@@ -43,7 +43,7 @@ export default function BackGroundFont(props: {
       <ConteudoTitulo>
         <Scroll>
           <Btext> {conteudo1} </Btext>
-          <SubTitulo>{`         ${subTitulo}`}</SubTitulo>
+          <SubTitulo>{`         ${subTitulo}\n`}</SubTitulo>
           <Text>{`\u2022   ${conteudo2}`} </Text>
           <Text>{`\u2022   ${conteudo3}`} </Text>
           <Text>{`\u2022   ${conteudo4}`} </Text>
