@@ -3,19 +3,23 @@ import {
   View,
   Text,
   TouchableOpacity,
+  ScrollView,
   StyleSheet,
   ImageBackground,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import BackGroundFont from "../../components/BackGroundFont";
 import Logo from "../../components/Logo";
+import { Scroll } from "../../components/BackGroundFont/styles";
 
-
-const Home: React.FC = () => {
+//Quem que fez isso aqui???w
+//const Home: React.FC = () => {
+export default function Home(){
   const navigation = useNavigation();
 
 
   return (
+    <ScrollView>
     <ImageBackground
       source={require("../../assets/Background.png")}
       style={styles.backgroundImage}
@@ -23,6 +27,7 @@ const Home: React.FC = () => {
     >
       <View style={{flex: 1}}>
         <Logo></Logo>
+        
       <BackGroundFont
         titulo="Quem Somos:"
         conteudo1="
@@ -34,6 +39,7 @@ const Home: React.FC = () => {
       />
       </View>
     </ImageBackground>
+    </ScrollView>
   );
 };
 
@@ -76,4 +82,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;

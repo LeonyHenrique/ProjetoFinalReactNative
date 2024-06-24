@@ -4,7 +4,7 @@ export const FundoTitulo = styled.View`
     flex: 1;
   align-items: center;
   justify-content: center;
-  max-height: 555px;
+  max-height: 55px;
   max-width: 320px;
   min-height: 555px;
   min-width: 320px;

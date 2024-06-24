@@ -5,12 +5,10 @@ import { LimitandoLogo } from "./styles";
 export default function Logo() {
   return (
     <LimitandoLogo>
-
     <Image
       source={require("../../assets/Logo.png")}
       style={styles.backgroundImage}
     ></Image>
-
     </LimitandoLogo>
   );
 }
@@ -18,7 +16,6 @@ export default function Logo() {
 const styles = StyleSheet.create({
     backgroundImage: {
       flex: 1,
-      resizeMode: "cover",
       justifyContent: "center",
       alignItems: "center",
     }
