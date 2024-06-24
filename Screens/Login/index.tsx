@@ -9,6 +9,9 @@ import {
   TextInput,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import * as Animatable from 'react-native-animatable';
+import HandleConectado from "../../components/HandleConectado";
+
 
 export default function Login(){
   const navigation = useNavigation();
@@ -18,12 +21,14 @@ export default function Login(){
   }
 
   return (
+
     <ImageBackground
       source={require("../../assets/Background.png")}
       style={styles.backgroundImage}
-      resizeMode="cover"
+      resizeMode="repeat"
     >
       <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <HandleConectado/>
         <View style={styles.container}>
           <Text style={styles.title}>{`Login`}</Text>
           <View style={styles.inputContainer}>

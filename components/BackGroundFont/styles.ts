@@ -1,4 +1,5 @@
 import {styled} from 'styled-components/native'
+import * as Animatable from 'react-native-animatable';
 
 export const FundoTitulo = styled.View`
     flex: 1;
@@ -45,6 +46,8 @@ export const Utext = styled.Text`
 
 export const Scroll = styled.ScrollView`
     padding: 20px;
+    min-height: 100%;
+    margin-bottom: 10px;
 `
 
 export const SubTitulo = styled.Text`
