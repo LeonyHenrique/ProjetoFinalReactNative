@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Feather from "react-native-vector-icons/Feather";
 import Home from "../Screens/Home";
 import Login from '../Screens/Login';
-import Ajuda from "../Screens/Ajuda";
+import Cursos from "../Screens/Cursos";
 import Contato from "../Screens/Contato";
 
 const Tab = createBottomTabNavigator();
@@ -35,8 +35,8 @@ export default function Routes() {
           }}
         />
         <Tab.Screen
-          name="Ajuda"
-          component={Ajuda}
+          name="Cursos"
+          component={Cursos}
           options={{
             tabBarInactiveTintColor: "black",
             tabBarIcon: ({ color, size }) => {
