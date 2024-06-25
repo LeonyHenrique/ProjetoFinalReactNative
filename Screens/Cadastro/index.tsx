@@ -15,12 +15,15 @@ import * as Animatable from 'react-native-animatable';
 import HandleConectado from "../../components/HandleConectado";
 import { db } from "../../firebaseConnection";
 import {addDoc, collection, doc, getDoc} from "firebase/firestore"
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 
 export default function Cadastro(data: { id: string; }){
   const navigation = useNavigation();
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const auth = getAuth();
+
 
 useEffect(() => {
   async function getCad() {
@@ -33,20 +36,26 @@ useEffect(() => {
   }
   getCad();
 })
+
 async function handleCadastro() {
-  await addDoc(collection(db, "user"),{
-    nome: nome,
-    email: email,
-    senha: senha,
-  }).then(() =>{
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
+    const user = userCredential.user;
+
+    await addDoc(collection(db,'user'), {
+      nome: nome,
+      email: email,
+      senha: senha,
+    })
+
     console.log("Cadastro Realizado!");
+    alert('Usuario Cadastrado!!!!!!!!');
     setNome("");
     setEmail("");
     setSenha("");
-  })
-  .catch((err) =>{
+  } catch (err) {
     console.log("Erro ao cadastrar: " + err);
-  });
+  }
 }
 
   return (
@@ -78,6 +87,7 @@ async function handleCadastro() {
               onChangeText={(text) => setEmail(text)}
             />
             <TextInput
+              textContentType="password"
               style={styles.input}
               placeholder="Digite uma senha"
               value={senha}

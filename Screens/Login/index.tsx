@@ -7,6 +7,8 @@ import {
   ImageBackground,
   ScrollView,
   TextInput,
+  KeyboardAvoidingView,
+  Platform
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import * as Animatable from "react-native-animatable";
@@ -22,19 +24,13 @@ export default function Login() {
   const [senha, setSenha] = useState("");
   const [loginSuccess, setLoginSuccess] = useState(false);
   const auth = getAuth();
-  signInWithEmailAndPassword(auth, email, senha)
-    .then((userCredential) => {
-      const user = userCredential.user;
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
+
 
   function handleLogin() {
     const Auth = getAuth();
     signInWithEmailAndPassword(auth, email, senha)
       .then((userCredential) => {
+        alert('Usuario Logado ')
         console.log("Usuario logado:", user);
         setLoginSuccess(true);
       })
@@ -50,6 +46,12 @@ export default function Login() {
       style={styles.backgroundImage}
       resizeMode="cover"
     >
+      <KeyboardAvoidingView 
+      style={{ flex: 1 }}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      keyboardVerticalOffset={80}
+      >
+
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <HandleConectado />
         <View style={styles.container}>
@@ -62,12 +64,13 @@ export default function Login() {
               onChangeText={(text) => setEmail(text)}
             />
             <TextInput
+              textContentType="password"
               style={styles.input}
               placeholder="Digite sua senha"
               value={senha}
               onChangeText={(text) => setSenha(text)}
             />
-            <TouchableOpacity style={styles.botao} /*onPress={}*/>
+            <TouchableOpacity style={styles.botao} onPress={handleLogin}>
               <Text style={styles.botaoTexto}>Entrar</Text>
             </TouchableOpacity>
           </View>
@@ -85,6 +88,7 @@ export default function Login() {
           </View>
         </View>
       </ScrollView>
+      </KeyboardAvoidingView>
     </ImageBackground>
   );
 }
