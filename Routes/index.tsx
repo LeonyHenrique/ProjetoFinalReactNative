@@ -1,17 +1,19 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Feather from "react-native-vector-icons/Feather";
 import Home from "../Screens/Home";
 import Login from '../Screens/Login';
 import Cursos from "../Screens/Cursos";
 import Contato from "../Screens/Contato";
+import Cadastro from "../Screens/Cadastro";
 
+const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-export default function Routes() {
+function TabRoutes() {
   return (
-    <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen
           name="Home"
@@ -40,7 +42,7 @@ export default function Routes() {
           options={{
             tabBarInactiveTintColor: "black",
             tabBarIcon: ({ color, size }) => {
-              return <Feather name="help-circle" color={color} size={size} />;
+              return <Feather name="book" color={color} size={size} />;
             },
           }}
         />
@@ -55,6 +57,17 @@ export default function Routes() {
           }}
         />
       </Tab.Navigator>
-    </NavigationContainer>
   );
+};
+
+export default function Routes() {
+    return (
+      <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Tabs" component={TabRoutes} options={{ headerShown: false }} />
+        <Stack.Screen name="Cadastro" component={Cadastro} />
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
+    )
 }

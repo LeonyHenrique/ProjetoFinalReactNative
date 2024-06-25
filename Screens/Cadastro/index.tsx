@@ -14,11 +14,10 @@ import { useNavigation } from "@react-navigation/native";
 import * as Animatable from 'react-native-animatable';
 import HandleConectado from "../../components/HandleConectado";
 
-export default function Login(){
+export default function Cadastro(){
   const navigation = useNavigation();
 
   return (
-
     <ImageBackground
       source={require("../../assets/Background.png")}
       style={styles.backgroundImage}
@@ -27,13 +26,19 @@ export default function Login(){
       <KeyboardAvoidingView 
       style={{ flex: 1 }}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      keyboardVerticalOffset={10}
+      keyboardVerticalOffset={80}
       >
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <HandleConectado/>
         <View style={styles.container}>
-          <Text style={styles.title}>{`Login`}</Text>
+          <Text style={styles.title}>{`Cadastro`}</Text>
           <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Digite seu nome"
+              //value={nome}
+              //onChangeText={}
+            />
             <TextInput
               style={styles.input}
               placeholder="Digite seu email"
@@ -42,23 +47,11 @@ export default function Login(){
             />
             <TextInput
               style={styles.input}
-              placeholder="Digite sua senha"
+              placeholder="Digite uma senha"
               //value={senha}
               //onChangeText={}
             />
             <TouchableOpacity style={styles.botao} /*onPress={}*/>
-              <Text style={styles.botaoTexto}>Entrar</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.bottomContainer}>
-            <Text style={styles.bottomText}>
-              Ainda não tem uma conta Tech Cursos? Clique no botão abaixo para
-              se cadastrar.
-            </Text>
-            <TouchableOpacity
-              style={styles.botaoDois} 
-              onPress={() => navigation.navigate("Cadastro")} 
-            >
               <Text style={styles.botaoTexto}>Cadastrar-se</Text>
             </TouchableOpacity>
           </View>
@@ -123,15 +116,6 @@ const styles = StyleSheet.create({
   botaoTexto: {
     color: "#fff",
   },
-  bottomContainer: {
-    width: "100%",
-    padding: 20,
-    borderColor: "#000",
-    borderWidth: 1,
-    borderRadius: 8,
-    backgroundColor: "#fff",
-    alignItems: "center",
-  },
   bottomText: {
     fontSize: 18,
     marginBottom: 20,
@@ -145,4 +129,3 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
 });
-
