@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -13,9 +13,41 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import * as Animatable from 'react-native-animatable';
 import HandleConectado from "../../components/HandleConectado";
+import { db } from "../../firebaseConnection";
+import {addDoc, collection, doc, getDoc} from "firebase/firestore"
 
-export default function Cadastro(){
+export default function Cadastro(data: { id: string; }){
   const navigation = useNavigation();
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+useEffect(() => {
+  async function getCad() {
+    const docref = doc(db, "user", data.id);
+    getDoc(docref).then((snapshot) =>{
+      console.log(snapshot.data());
+    }).catch(()=>{
+      console.log("erro ao buscar dados");
+    })
+  }
+  getCad();
+})
+async function handleCadastro() {
+  await addDoc(collection(db, "user"),{
+    nome: nome,
+    email: email,
+    senha: senha,
+  }).then(() =>{
+    console.log("Cadastro Realizado!");
+    setNome("");
+    setEmail("");
+    setSenha("");
+  })
+  .catch((err) =>{
+    console.log("Erro ao cadastrar: " + err);
+  });
+}
 
   return (
     <ImageBackground
@@ -36,22 +68,22 @@ export default function Cadastro(){
             <TextInput
               style={styles.input}
               placeholder="Digite seu nome"
-              //value={nome}
-              //onChangeText={}
+              value={nome}
+              onChangeText={(text) => setNome(text)}
             />
             <TextInput
               style={styles.input}
               placeholder="Digite seu email"
-              //value={email}
-              //onChangeText={}
+              value={email}
+              onChangeText={(text) => setEmail(text)}
             />
             <TextInput
               style={styles.input}
               placeholder="Digite uma senha"
-              //value={senha}
-              //onChangeText={}
+              value={senha}
+              onChangeText={(text) => setSenha}
             />
-            <TouchableOpacity style={styles.botao} /*onPress={}*/>
+            <TouchableOpacity style={styles.botao} onPress={handleCadastro}>
               <Text style={styles.botaoTexto}>Cadastrar-se</Text>
             </TouchableOpacity>
           </View>
