@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -7,44 +7,65 @@ import {
   ImageBackground,
   ScrollView,
   TextInput,
-  KeyboardAvoidingView,
-  Platform,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import * as Animatable from 'react-native-animatable';
+import * as Animatable from "react-native-animatable";
 import HandleConectado from "../../components/HandleConectado";
+import { db } from "../../firebaseConnection";
+import { Auth, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { FirebaseError } from "firebase/app";
 
-export default function Login(){
+export default function Login() {
   const navigation = useNavigation();
+  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [loginSuccess, setLoginSuccess] = useState(false);
+  const auth = getAuth();
+  signInWithEmailAndPassword(auth, email, senha)
+    .then((userCredential) => {
+      const user = userCredential.user;
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+
+  function handleLogin() {
+    const Auth = getAuth();
+    signInWithEmailAndPassword(auth, email, senha)
+      .then((userCredential) => {
+        console.log("Usuario logado:", user);
+        setLoginSuccess(true);
+      })
+      .catch((error: FirebaseError) => {
+        console.error("Erro ao fazer login:", error.message);
+        setLoginSuccess(false);
+      });
+  }
 
   return (
-
     <ImageBackground
       source={require("../../assets/Background.png")}
       style={styles.backgroundImage}
       resizeMode="cover"
     >
-      <KeyboardAvoidingView 
-      style={{ flex: 1 }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      keyboardVerticalOffset={10}
-      >
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <HandleConectado/>
+        <HandleConectado />
         <View style={styles.container}>
           <Text style={styles.title}>{`Login`}</Text>
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
               placeholder="Digite seu email"
-              //value={email}
-              //onChangeText={}
+              value={email}
+              onChangeText={(text) => setEmail(text)}
             />
             <TextInput
               style={styles.input}
               placeholder="Digite sua senha"
-              //value={senha}
-              //onChangeText={}
+              value={senha}
+              onChangeText={(text) => setSenha(text)}
             />
             <TouchableOpacity style={styles.botao} /*onPress={}*/>
               <Text style={styles.botaoTexto}>Entrar</Text>
@@ -56,18 +77,17 @@ export default function Login(){
               se cadastrar.
             </Text>
             <TouchableOpacity
-              style={styles.botaoDois} 
-              onPress={() => navigation.navigate("Cadastro")} 
+              style={styles.botaoDois}
+              onPress={() => navigation.navigate("Cadastro")}
             >
               <Text style={styles.botaoTexto}>Cadastrar-se</Text>
             </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
-      </KeyboardAvoidingView>
     </ImageBackground>
   );
-};
+}
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -145,4 +165,3 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
 });
-
