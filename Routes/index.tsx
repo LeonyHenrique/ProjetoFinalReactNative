@@ -64,7 +64,7 @@ export default function Routes() {
     return (
       <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Tabs" component={TabRoutes} options={{ headerShown: false }} />
+        <Stack.Screen name="Login " component={TabRoutes} options={{ headerShown: false }} />
         <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
