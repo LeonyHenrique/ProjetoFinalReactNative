@@ -76,8 +76,6 @@ export default function Contato() {
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    justifyContent: "center",
-    transform: [{ scale: 1.09 }],
   },
   overlay: {
     flex: 1,
@@ -99,6 +97,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#eff1efd5",
     borderWidth: 1,
+    borderRadius: 8,
   },
   contactBox: {
     backgroundColor: "rgb(255, 255, 255)",
@@ -109,6 +108,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 1,
     textAlign: "center",
+    borderRadius: 8,
   },
   addressBox: {
     backgroundColor: "rgb(255, 255, 255)",
@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     width: "90%",
     textAlign: "center",
+    borderRadius: 8,
   },
   contactText: {
     fontSize: 16,

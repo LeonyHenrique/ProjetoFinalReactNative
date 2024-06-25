@@ -81,7 +81,7 @@ async function handleCadastro() {
               style={styles.input}
               placeholder="Digite uma senha"
               value={senha}
-              onChangeText={(text) => setSenha}
+              onChangeText={(text) => setSenha(text)}
             />
             <TouchableOpacity style={styles.botao} onPress={handleCadastro}>
               <Text style={styles.botaoTexto}>Cadastrar-se</Text>
